@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <center>
+        <thead><b>Calculator</b></thead>
+        <table style="border: 1px solid black; height: 200px;">
+            <!-- <thead><b>Calculator</b></thead> -->
+            <tr>
+                <td>
+                    Enter number 1
+                </td>
+
+                <td>
+                    <input type="number" id="no_1" required="required">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Enter number 2
+                </td>
+
+                <td>
+                    <input type="number" id="no_2" required="required">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Result
+                </td>
+
+                <td>
+                    <input type="number" id="res">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="button" value="Addition" onclick="addition();">
+                </td>
+
+                <td>
+                    <input type="button" value="subtraction" onclick="subtraction();">
+                </td>
+
+                <td>
+                    <input type="button" value="Multiplication" onclick="multiplication();">
+                </td>
+
+                <td>
+                    <input type="button" value="Division" onclick="division();">
+                </td>
+
+                <!-- <td>
+                    <input type="button" value="Clear" onclick="clear()">
+                </td> -->
+            </tr>
+    </center>
+
+    <script>
+        function addition() {
+
+            var x = document.getElementById("no_1");
+            var y = document.getElementById("no_2");
+            var resval = document.getElementById("res");
+
+            var xadd = parseFloat(x.value);
+            var yadd = parseFloat(y.value);
+            var z = xadd + yadd;
+            resval.value = z;
+        }
+
+        function subtraction() {
+
+            var x = document.getElementById("no_1");
+            var y = document.getElementById("no_2");
+            var resval = document.getElementById("res");
+
+            var xadd = parseFloat(x.value);
+            var yadd = parseFloat(y.value);
+            var z = xadd - yadd;
+            resval.value = z;
+        }
+
+        function multiplication() {
+
+            var x = document.getElementById("no_1");
+            var y = document.getElementById("no_2");
+            var resval = document.getElementById("res");
+
+            var xadd = parseFloat(x.value);
+            var yadd = parseFloat(y.value);
+            var z = xadd * yadd;
+            resval.value = z;
+        }
+
+        function division() {
+
+            var x = document.getElementById("no_1");
+            var y = document.getElementById("no_2");
+            var resval = document.getElementById("res");
+
+            var xadd = parseFloat(x.value);
+            var yadd = parseFloat(y.value);
+            var z = xadd / yadd;
+            resval.value = z;
+        }
+
+        // function clear() {
+
+        //     var x = document.getElementById("no_1");
+        //     var y = document.getElementById("no_2");
+        //     var resval = document.getElementById("res");
+
+
+        //     x.value=null;
+        //     y.value=null;
+        //     resval.value=null;
+        // }
+    </script>
+
+</body>
+
+</html>
