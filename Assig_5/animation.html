@@ -1,0 +1,117 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+
+    name : <input type="text" id="txtname"> <br>
+    age : <input type="text" id="txtage"><br>
+    email : <input type="text" id="txtmail"><br>
+    <br>
+    <input type="button" value="click me" id="btn">
+
+    <script>
+        var allInputObjects = document.getElementsByTagName("input");
+
+        for (var i = 0; i < allInputObjects.length; i++) {
+            var refToInput = allInputObjects[i];
+
+            if (refToInput.type == "text") {
+                refToInput.style.backgroundColor = "red";
+                refToInput.style.color = "black";
+            }
+
+        }
+    </script>
+
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="myDiv" style="width: 200px; position: absolute; left: 0px; top: 0px">
+        <img src="ferrari.png" height="100px" width="200px" />
+    </div>
+    <div style="
+        height: 50px;
+        width: 600px;
+        background-color: black;
+        position: absolute;
+        left: 0px;
+        top: 76px;
+      "></div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+    <div style="top: 150px; left: 8px; position: absolute; ">
+        X: axis <input type="number" id="X_axis">
+        <br> <br>
+        Y: axis <input type="number" id="Y_axis">
+    </div>
+    <br><br>
+    <div>
+        <input type="button" value="Move" onclick="Move()" />
+        <input type="button" value="Stop" onclick="Stop()" />
+    </div>
+
+    <script>
+        var leftVal = 0;
+        var v=0;
+        var topval=0;
+        var arrayOfQueues = new Array();
+        function Move() {
+            
+            var qNo = setInterval(KeepMoving, 100);
+            arrayOfQueues.push(qNo);
+        }
+        function Stop() {
+            for (var i = 0; i < arrayOfQueues.length; i++) {
+                var qToStop = arrayOfQueues[i];
+                clearInterval(qToStop);
+                debugger;
+                v=setInterval(crash,100);
+            }
+        }
+        function KeepMoving() {
+            if (leftVal > 600) {
+                for (var i = 0; i < arrayOfQueues.length; i++) {
+                    var qToStop = arrayOfQueues[i];
+                    clearInterval(qToStop);
+                    
+                }
+            } else {
+                var refTomyDiv = document.getElementById("myDiv");
+                if (refTomyDiv != null) {
+                    leftVal = leftVal + 1;
+                    refTomyDiv.style.left = leftVal + "px";
+                }
+            }
+        }
+
+        function crash(){
+            debugger;
+            var refTomyDiv = document.getElementById("myDiv");
+          
+            if(top<150){
+                topval=topval+10;
+                refTomyDiv.style.top=topval+"px";
+                console.log(topval);
+            }
+            else{
+                clearInterval(v);
+            }
+        }
+    </script>
+</body>
+
+</html>

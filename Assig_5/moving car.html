@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div style="height: 157px; width: 260px; position: absolute; left: 0px; top: 0px;">
+        <img style="height: 157px; width: 260px" src="ferrari.png" alt="F1 car">
+    </div>
+
+    <div
+        style="height: 20px; width: 600px; border: 1px solid black; background-color: gray; position: absolute; left: 0px; top: 120px;">
+    </div>
+
+    <div style="top: 150px; left: 8px; position: absolute; ">
+        X: axis <input type="text" id="X_axis">
+        <br> <br>
+        Y: axis <input type="text" id="Y_axis">
+    </div>
+
+    <!-- <input style="position: absolute; top: 220px; left: 60px;" type="button" value="Move" id="mov_btn"
+        onclick="Move();"> -->
+
+    <input style="position: absolute; top: 220px; left: 120px;" type="button" value="Start" id="start_btn"
+        onclick="Start();">
+
+    <input style="position: absolute; top: 220px; left: 180px;" type="button" value="Stop" id="stop_btn"
+        onclick="Stop();">
+
+    <script>
+
+        var leftVal = 0;
+        var topVal = 0;
+        var arrayOfQueues = new Array();
+        function Move() {
+            var qNo = setInterval(KeepMoving, 100);
+            arrayOfQueues.push(qNo);
+        }
+
+
+
+
+
+
+        // function Start() { }
+
+        function Stop() {
+            for (var i = 0; i < arrayOfQueues.length; i++) {
+                var qToStop = arrayOfQueues[i];
+                clearInterval(qToStop);
+            }
+        }
+
+        function KeepMoving() {
+            if (leftVal > 600) {
+                topVal = 220;
+                for (var i = 0; i < arrayOfQueues.length; i++) {
+                    var qToStop = arrayOfQueues[i];
+                    clearInterval(qToStop);
+                }
+            } else {
+                var refTomyDiv = document.getElementById("myDiv");
+                if (refTomyDiv != null) {
+                    leftVal = leftVal + 1;
+                    refTomyDiv.style.left = leftVal + "px";
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
